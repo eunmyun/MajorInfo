@@ -1,0 +1,25 @@
+/* Website template by freewebsitetemplates.com */
+/*------------------------- Layout styles ------------------------*/ 
+
+/*------------------------- Sidebar ------------------------*/ 
+.sidebar ul.navigation{
+	padding: 80px 0 0;
+}
+.sidebar form{
+	padding: 0 0 20px 0;
+}
+.sidebar input:first-child{
+	margin: 0 0 0 -20px;
+}
+.content .blog ul li:first-child{
+	overflow: hidden;
+	margin: 0;
+}
+.content .blog ul li{
+	overflow: hidden;
+	margin: 0;
+}
+.content .categories ul li a:first-child img:hover{	
+	display: block;
+}
+
