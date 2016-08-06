@@ -7,9 +7,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="icon/favicon.ico">
+    <!-- <link rel="icon" href="icon/favicon.ico"> -->
 
-    <title>Off Canvas Template for Bootstrap</title>
+    <title>UW Major Search</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,8 @@
     <link href="assets/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="offcanvas.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="script.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -33,100 +34,125 @@
 
   <body>
     <div class="container">
-      <div class="row"> <!--  row-offcanvas row-offcanvas-right -->
-        <div> <!-- class="col-xs-12 col-md-9" -->
+      <div class="row">
+        <div> 
 
           <div class="jumbotron">
-            <h1>Informatics</h1>
-            <p>Major description goes here</p>
+            <h1 id="majorTitle">Informatics</h1>
+            <h5 id="majorDesc">Major description goes here</h5>
           </div>
 
-          <div class="row center-block">
-            
-            <div class="col-xs-6 col-md-4">
-              <h2>Major Type</h2>
+          <h2>2016 Admission Statistics</h2>
+
+          <div class="row">
+<!--             <div class="col-md-4">
+              <h3>Major Type</h3>
               <p>Competitive</p>
-            </div><!--/.col-xs-6.col-lg-4-->
+            </div> -->
 
-            <div class="col-xs-6 col-md-4">
-              <h2>Total Students Applied</h2>
-              <p>799</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-            
-            <div class="col-xs-6 col-md-4">
-              <h2>Total Students Admitted</h2>
-              <p>210</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-            
-            <div class="col-xs-6 col-md-4">
-              <h2>GPA Range</h2>
-              <p>2.48 - 3.99</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-            
-            <div class="col-xs-6 col-md-4">
-              <h2>Minimum GPA Required</h2>
-              <p>2.0</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-            
-            <div class="col-xs-6 col-md-4">
-              <h2>Application Open Date</h2>
-              <p>April 15th</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-            
-            <div class="col-xs-6 col-md-4">
-              <h2>Application Close Date</h2>
-              <p>June 15th</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-
-            <div class="col-xs-6 col-md-4">
-              <h2>Admission Decision Date</h2>
-              <p>Late July</p>
-            </div><!--/.col-xs-6.col-lg-4-->
-
-            <div class="col-xs-6 col-md-4">
-              <h2>Advisor Email</h2>
+            <div class="col-md-4">
+              <h3>Advisor Email</h3>
               <p>informatics@uw.edu</p>
-            </div><!--/.col-xs-6.col-lg-4-->
+            </div>
+          </div>
 
-            <div class="col-xs-12 col-md-9">
-              <h2>Prerequisite Courses</h2>
-              <p>
-                CSE142 <br />
-                INFO200 <br />
-                STAT221 or STAT311 or STAT290 or QMETH201 or QSCI381 <br />
-                ENG111 or ENG121 or ENG131 <br />
-                I&amp;S course
-              </p>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Total Students Applied</h3>
+              <p>799</p>
+            </div>
+            
+            <div class="col-md-4">
+              <h3>Total Students Admitted</h3>
+              <p>210</p>
             </div>
 
-            <div class="col-xs-12 col-md-9">
-              <h2>Graduate Requirement Courses</h2>
-              <p>
-                INFO470 INFO481 INFO490 INFO491 CSE143 CSE373 INFO340 INFO343 INFO360 INFO380 INFO450
-              </p>
+            <div class="col-md-4">
+              <h3> Admission Rate</h3>
+              <p>26%</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>GPA Range</h3>
+              <p>2.48 - 3.99</p>
+            </div>
+            
+            <div class="col-md-4">
+              <h3>Minimum GPA Required</h3>
+              <p>2.0</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Application Open Date</h3>
+              <p>April 15th, 2016</p>
+            </div>
+            
+            <div class="col-md-4">
+              <h3>Application Close Date</h3>
+              <p>June 15th, 2016</p>
+            </div>
+
+            <div class="col-md-4">
+              <h3>Admission Decision Date</h3>
+              <p>July 27th, 2016</p>
+            </div>
+          </div>
+
+            <div>
+              <h2>Admission Prerequisite Courses</h2>
+              <ul>
+                <li>CSE142</li>
+                <li>INFO200 </li>
+                <li>STAT221 or STAT311 or STAT290 or QMETH201 or QSCI381</li>
+                <li>ENG111 or ENG121 or ENG131</li>
+                <li>I&amp;S Course</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2>Graduation Requirement Courses</h2>
+              <ul>
+                <li><button>INFO 470</button></li>
+                <li><button>INFO 481</button></li>
+                <li><button>INFO 490</button></li>
+                <li><button>INFO 491</button></li>
+                <li><button>CSE 143</button></li>
+                <li><button>CSE 373</button></li>
+                <li><button>INFO 340</button></li>
+                <li><button>INFO 343</button></li>
+                <li><button>INFO 360</button></li>
+                <li><button>INFO 380</button></li>
+                <li><button>INFO 450</button></li>
+              </ul>
 
             </div>
 
-          </div><!--/row-->
-        </div><!--/.col-xs-12.col-sm-9-->
-      </div><!--/row-->
+          </div>
+        </div>
+      </div>
 
-      <hr>
+    </body>
+
       <footer>
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2016 CLS</p>
       </footer>
 
-    </div><!--/.container-->
+    </div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/jquery.min.js"><\/script>')</script>
-    <script src="dist/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="dist/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
     <script src="assets/ie10-viewport-bug-workaround.js"></script>
-    <script src="offcanvas.js"></script>
+    <script src="script.js"></script> -->
   </body>
 </html>
