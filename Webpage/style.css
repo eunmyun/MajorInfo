@@ -12,6 +12,14 @@ body {
 footer {
   padding: 30px 0;
 }
+ul {
+  list-style-type: none;
+}
+button {
+  background-color: white;
+  color: black;
+}
+
 
 @media (min-width: 950px) {
   .container {
