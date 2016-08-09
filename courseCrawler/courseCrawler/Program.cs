@@ -13,12 +13,15 @@ namespace courseCrawler
         {
             var csv = new StringBuilder();
             string url = "https://www.washington.edu/students/crscat/";
-            List<string> majors = new List<string>();
+            //List<string> majors = new List<string>();
+            //<string> majorNames = new List<string>();
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
             Regex courseNameReg = new Regex(@"^[A-Za-z]+( [A-Z]+)?");
             Regex courseNumReg = new Regex(@"^(\d)+");
             Regex courseTitleReg = new Regex(@"^([A-Za-z0-9-,])+( [A-Za-z0-9:,]+)*");
+            Regex majorNameReg = new Regex(@"^[A-Za-z-']+( [A-Za-z]+)*");
 
-            var newLine = string.Format("{0},{1},{2},{3},\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\"", "courseAbbr_courseNum", "courseAbbr", "courseNum", "courseDesc", "credits", "my_plan_link", "type", "prerequisite", "courseAbbr_without_space");
+            var newLine = string.Format("{0},{1},{2},{3},\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\",\"{10}\"", "major", "courseAbbr_courseNum", "courseAbbr", "courseNum", "courseTitle", "courseDesc", "credits", "my_plan_link", "type", "prerequisite", "courseAbbr_without_space");
             csv.AppendLine(newLine);
 
             HtmlWeb web = new HtmlWeb();
@@ -27,17 +30,33 @@ namespace courseCrawler
             string courseNum;
             string courseTitleOfficial;
             var root = doc.DocumentNode.SelectNodes("//li/a");
+            string majorHtml;
+            string majorName;
 
             foreach (var node in root)
             {
-                string major = node.Attributes["href"].Value;
-                if (!majors.Contains(major) && !major.Contains("/") && major.Contains(".html"))
+                majorHtml = node.Attributes["href"].Value;
+                if (!dictionary.ContainsKey(majorHtml) && !majorHtml.Contains("/") && majorHtml.Contains(".html"))
                 {
-                    majors.Add(major);
+                    //majors.Add(major);
+                    majorName = node.InnerText;
+                    Match match = majorNameReg.Match(majorName);
+                    if (match.Success) {
+                        dictionary.Add(majorHtml, match.Value);
+                        //majorNames.Add(match.Value);
+                    }
                 }
             }
 
-            foreach (string major in majors)
+
+            //using (StreamWriter writer = new StreamWriter(@"C:\Users\Sally\Desktop\majors.txt", true)) {
+            //    foreach (string s in majorNames)
+            //    {
+            //        writer.WriteLine(s);
+            //    }
+            //}
+
+            foreach (string major in dictionary.Keys)
             {
                 HtmlDocument majorDoc = web.Load(url + major);
                 var majorRoot = majorDoc.DocumentNode.SelectNodes("//a[@name]");
@@ -87,7 +106,7 @@ namespace courseCrawler
                                         courseDesc = courseDesc.Substring(0, courseDesc.IndexOf("Prerequisite:"));
                                     }
                                     Console.WriteLine(courseAbbr + "_" + courseNum);
-                                    newLine = string.Format("{0},{1},{2},\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\"", courseAbbr + "_" + courseNum, courseAbbr, courseNum, courseDesc, credits, link, type, prerequisite, courseAbbr.Replace(" ", ""));
+                                    newLine = string.Format("{0},{1},{2},\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\",\"{10}\"", dictionary[major], courseAbbr + "_" + courseNum, courseAbbr, courseNum, courseTitleOfficial, courseDesc, credits, link, type, prerequisite, courseAbbr.Replace(" ", ""));
                                     csv.AppendLine(newLine);
                                 }
                             }
@@ -98,7 +117,7 @@ namespace courseCrawler
                     }
                 }
             }
-            File.WriteAllText(@"C:\Users\5TJ\Desktop\MajorInfo\courseEval\courses.csv", csv.ToString());
+            File.WriteAllText(@"C:\Users\Sally\Desktop\courses.csv", csv.ToString());
         }
     }
 }
